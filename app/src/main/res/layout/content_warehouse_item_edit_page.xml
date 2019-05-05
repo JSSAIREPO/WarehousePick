@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".WarehouseItemEditPage"
+    tools:showIn="@layout/activity_warehouse_item_edit_page">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/medium_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_padding"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:padding="@dimen/medium_padding"
+                    android:text="@string/item_no" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/etItemNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:gravity="start"
+                    android:padding="@dimen/medium_padding" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_padding"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:padding="@dimen/medium_padding"
+                    android:text="@string/bin_code"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/etBinCode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:inputType="textCapCharacters"
+                    android:padding="@dimen/medium_padding" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:padding="@dimen/medium_padding"
+                    android:text="@string/quantity" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/etQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:inputType="number"
+                    android:padding="@dimen/medium_padding" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_padding"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnOk"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/medium_padding"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:gravity="center"
+                    android:onClick="submit"
+                    android:padding="@dimen/medium_padding"
+                    android:text="@string/ok"
+                    android:textColor="@android:color/white" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnCancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/medium_padding"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:gravity="center"
+                    android:onClick="cancel"
+                    android:padding="@dimen/medium_padding"
+                    android:text="@string/cancel"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "navision-42f9e",
+  "private_key_id": "ae4aa857288aecf6cd84c18ddb3a0c07d03f208c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDs+LemaEP3XtnO\nWW3p9PH514vTe9CVOkK74qUBppv1s+KHeRJnhn9pExCgNMfSDcHkln6IzKQWwJ8/\nAwNkqvOKDQ//dRqVWafrQGRWtvTzRwMoJL1Fq9ga9R6BYf2tqkiQB0MbTTFZh6NX\nG6YHWb49t0otKz7+v3Y6m1t/E+wORPKvTniZ1NVc18oMBY0zpe75vuQUbQLgQL0Q\nMBKKE/4xkWv2casz2ObFo5RrGRNFIclW6C6gXEKh4KqM7GXblYPO0Il8Bk1XMoi/\n7uObwIk7pYOi9ngOKXXE3p2VRYYILSFiUwHCqig79+cBizcPD3vcUIfnDo+C5AZN\nIVyZtIy1AgMBAAECggEAa/gWlPdEoFzTGDWe4s37wj33M3BiZNuatEhbrhjfTl+b\nguYjAJBDVPiexp/Fu2sRQLlhBatXyBYTeH5C+Yb6V5gEBfyxFAM5gvJfxTKvAHkG\ncy/qHOhjGkU8lO60yn+feCAW70WIiqZGQdYTG55EE5KDdXkSxrctgx5t3cSR9R2M\ncDkskpgDZge1rBhUXHe2sFMlEc3zfMz6BO0UjIhzS90PdQVm63Q68Tk7Fo3NA3it\nKjKXcGwakfaGw7HDLG3cqR28ltsNjNrzQZ25Hd7sn3DSHrmbDJPKe1YNYMbbQRbE\nvG1myfkP6HhqIiFTxjDcXlNkrOpHJNzCskYOq5upAQKBgQD/HFCIu/K4U4kL9g8Y\niCSu/UWv63JQnaAWl3sBczFzl8DJDHvj+f1jlQm51hHotvo6lpnu6azhoZEAhePY\nXsyodpLY6WEDlJXoWs3Y1aeeP0PTmgG78u6ck+twAq7HJQL4DZusoZzksRTNqeQp\nXsJTGpfPa11gAG5rjvwvagbP5QKBgQDtzDa4UD8iXlzfurDe3qK6PeO0/fvZ6gJu\nSFyCNZpshdpqcv0vpFh9wk/hX8NE4baFbtxqR7c02RH201lJ+rNyywAVj81oa1S2\nX0px7odjx/gM+VIQ7fAzJnOZvnKz+4ep8B2IkxQbPBQDaDiLPac513/5Qr1kvYNt\nsIY3+XDckQKBgQDifvcZjxT+hlwk3H+mnilDm+ZlPDswS+I4bKFvNiDvqgol9gmA\n7REFeus5rVAVN2+O2OsubRVq9hFRT45tKi22XCAgqYPSs/csZoJgQ8EgBLdphVCI\n2DT1m3bq6dbXRIsQRLS0XoB3oqj/uBi0ikcplXC3XXF3rKpcoIRSbGZD6QKBgQDe\nizBmu8rqCi+WvewLF4ZpD8SLvOo3HRZbSWMyBKJZj8dBug2SyZZ7Ux9YxztCuo4L\nQB4NZMJjNgbm3RKB9pp8Atk4VJUidNgZuQI9r8KLMjjFQ4t3Boa2B/VF3AMSx4JG\nGs4445R8jHQaYC4SuYdHzZMZnkkK/4UBYaOqvMnP0QKBgA74IE0UVFInM7WqIhs8\n2JFqtJG9zpFDPCkZRUhr67cWEh2hRDYDI7m2PWzCSXw4brZ36huKXE3kMu4OvHSx\nwcMXyPWD6tO9P9JiTxdL6njZ0wSSSfutMOjLgzZZ5mNCmuS/Fzf7s5y5CGj5UZno\nLVSFrdv3Pey3f7zDhpPOB+HU\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-crashreporting-hqrwz@navision-42f9e.iam.gserviceaccount.com",
+  "client_id": "101492743204727355342",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-crashreporting-hqrwz%40navision-42f9e.iam.gserviceaccount.com"
+}

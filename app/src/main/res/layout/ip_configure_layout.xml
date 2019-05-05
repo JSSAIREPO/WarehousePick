@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:weightSum="3">
+
+    <EditText
+        android:id="@+id/ip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="IP" />
+
+    <EditText
+        android:id="@+id/ipName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="IP Name" />
+
+
+    <EditText
+        android:id="@+id/etDomainName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Domain Name" />
+
+    <EditText
+        android:id="@+id/etPort"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Port" />
+
+    <EditText
+        android:id="@+id/etInstanceName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="@string/instance_name" />
+
+    <EditText
+        android:id="@+id/etCompanyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Company Name" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:layout_weight="1.495"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RTC" />
+
+
+            <EditText
+                android:id="@+id/databsename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Instance Name" />
+
+            <EditText
+                android:id="@+id/company"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Company Name" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/odataport"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="OData - Port " />
+
+                <EditText
+                    android:id="@+id/soapport"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="SOAP - Port " />
+
+                <EditText
+                    android:id="@+id/pdfport"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="PDF-Port" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:layout_weight="0.01">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                android:background="#27000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:layout_weight="1.495"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Classic" />
+
+            <EditText
+                android:id="@+id/ip9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="IP" />
+
+            <EditText
+                android:id="@+id/databsename9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Instance Name" />
+
+            <EditText
+                android:id="@+id/company9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Company Name" />
+
+            <EditText
+                android:id="@+id/port9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Port" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

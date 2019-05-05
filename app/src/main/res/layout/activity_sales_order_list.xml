@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_sales_order"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jssai.warehousepick.SalesOrderListActivity">
+
+
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+   <ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@android:drawable/ic_menu_close_clear_cancel"
+    android:layout_gravity="right"
+       android:clickable="true"
+       android:onClick="clearFilter"
+    />
+        <EditText
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:hint="Search"
+            android:drawableLeft="@android:drawable/ic_menu_search"
+            android:background="@drawable/oval_edittext"
+            android:paddingLeft="10dp"
+            android:id="@+id/search"
+            android:layout_alignParentBottom="true" />
+        <Spinner
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:id="@+id/filter_spinner"
+            ></Spinner>
+
+        </android.support.v7.widget.Toolbar>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/header"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentStart="true">
+        <TextView
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:text="Sales Order Number"
+        android:textStyle="bold"
+        android:id="@+id/No"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:onClick="sortList"
+        />
+        <TextView
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="Shipment Date"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:layout_toEndOf="@+id/No"
+        android:id="@+id/Shipment_Date"
+        android:clickable="true"
+        android:layout_marginLeft="9dp"
+        android:onClick="sortList"
+        />
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer PO No"
+        android:textStyle="bold"
+        android:id="@+id/Customer_PO_No"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:onClick="sortList"
+        android:layout_toEndOf="@+id/Shipment_Date"
+        android:layout_marginLeft="5dp"/>
+
+        <TextView
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="Sell to Customer Name"
+        android:textStyle="bold"
+        android:id="@+id/Sell_to_Customer_Name"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:layout_toEndOf="@+id/Sell_to_Customer_No"
+        android:onClick="sortList"
+        />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ship To PO No"
+        android:textStyle="bold"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/Ship_To_PO_No"
+        android:layout_toEndOf="@+id/Sell_to_Customer_Name"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:onClick="sortList"
+        />
+        <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="Ship to Code"
+        android:textStyle="bold"
+        android:id="@+id/Ship_to_Code"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:layout_marginLeft="50dp"
+        android:layout_toEndOf="@+id/Ship_To_PO_No"
+        android:onClick="sortList"/>
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ship to Name"
+        android:textStyle="bold"
+        android:id="@+id/Ship_to_Name"
+        android:layout_gravity="center"
+        android:layout_toEndOf="@+id/Ship_to_Code"
+        android:clickable="true"
+        android:layout_marginLeft="15dp"
+        android:onClick="sortList"
+        />
+
+        <TextView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Sell to Customer No"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginLeft="70dp"
+        android:clickable="true"
+        android:onClick="sortList"
+        android:id="@+id/Sell_to_Customer_No"
+        android:layout_toEndOf="@+id/Customer_PO_No"
+           />
+    </RelativeLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/salesRecycler"
+        android:layout_below="@+id/header"
+     ></android.support.v7.widget.RecyclerView>
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/scrollup"
+        android:clickable="true"
+        android:onClick="scrollUp"
+        android:src="@drawable/ic_keyboard_arrow_up_black_24dp"
+        />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/scrolldown"
+        android:clickable="true"
+        android:onClick="scrollDown"
+        android:layout_below="@+id/scrollup"
+        android:src="@drawable/ic_expand_more_black_24dp"
+        />
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:weightSum="9"-->
+        <!--android:id="@+id/header"-->
+
+        <!--android:layout_below="@+id/toolbar"-->
+        <!--android:layout_alignParentStart="true">-->
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="0px"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:text="Entry No"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/Entry_No"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textStyle="bold"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_weight="1"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_gravity="center"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_alignParentRight="true"&ndash;&gt;-->
+            <!--&lt;!&ndash;/>&ndash;&gt;-->
+
+        <!--<TextView-->
+            <!--android:layout_width="0px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Sell to Customer No"-->
+            <!--android:layout_weight="1"-->
+            <!--android:textStyle="bold"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:layout_below="@+id/name"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:clickable="true"-->
+            <!--android:onClick="sortList"-->
+            <!--android:id="@+id/Sell_to_Customer_No"-->
+            <!--/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="0px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Sales Order Number"-->
+            <!--android:textStyle="bold"-->
+            <!--android:id="@+id/No"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_weight="1"-->
+            <!--android:clickable="true"-->
+            <!--android:onClick="sortList"-->
+            <!--/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="71dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Ship to Code"-->
+            <!--android:textStyle="bold"-->
+            <!--android:id="@+id/Ship_to_Code"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:clickable="true"-->
+            <!--android:onClick="sortList"/>-->
+        <!--<TextView-->
+            <!--android:layout_width="0px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Ship to Name"-->
+            <!--android:textStyle="bold"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:id="@+id/Ship_to_Name"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_weight="1"-->
+            <!--android:clickable="true"-->
+            <!--android:onClick="sortList"-->
+            <!--/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="0px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Shipment Date"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:textStyle="bold"-->
+            <!--android:layout_marginRight="50dp"-->
+            <!--android:id="@+id/Shipment_Date"-->
+            <!--android:layout_weight="1.22"-->
+            <!--android:clickable="true"-->
+            <!--android:onClick="sortList"-->
+            <!--/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="0px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Sell to Customer Name"-->
+            <!--android:textStyle="bold"-->
+            <!--android:id="@+id/Sell_to_Customer_Name"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:clickable="true"-->
+            <!--android:onClick="sortList"-->
+            <!--/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="0px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Customer PO No"-->
+            <!--android:textStyle="bold"-->
+            <!--android:id="@+id/Customer_PO_No"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:clickable="true"-->
+            <!--android:onClick="sortList"-->
+            <!--/>-->
+        <!--<TextView-->
+            <!--android:layout_width="0px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Ship To PO No"-->
+            <!--android:textStyle="bold"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:id="@+id/Ship_To_PO_No"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:clickable="true"-->
+            <!--android:onClick="sortList"-->
+            <!--/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="0px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Comment"-->
+            <!--android:textStyle="bold"-->
+            <!--android:id="@+id/Mobile_Comment"-->
+            <!--android:layout_weight="1.14"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:clickable="true"-->
+            <!--android:onClick="sortList"-->
+            <!--/>-->
+
+    <!--</LinearLayout>-->
+
+    <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:paddingBottom="15dp"-->
+        <!--android:id="@+id/sear_layout"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentStart="true">-->
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:drawableLeft="@drawable/ic_note"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:hint="Search"-->
+            <!--android:id="@+id/salesSearch"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="@drawable/oval_edittext"/>-->
+    <!--</FrameLayout>-->
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:id="@+id/pageprogress"/>
+</RelativeLayout>

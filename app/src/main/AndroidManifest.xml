@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jssai.warehousepick">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <application
+        android:name=".AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_temp"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MenuActivity"></activity>
+        <activity
+            android:name=".WarehouseItemEditPage"
+            android:label="@string/title_activity_warehouse_item_edit_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WarehouseDetailPage"
+            android:label="@string/title_activity_warehouse_detail_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WarehousepickListActivity"
+            android:label="WarehousepickListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainActivity" />
+
+        <service
+            android:name=".Util.NetworkService"
+            android:exported="false" />
+
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Login"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SalesOrderListActivity"
+            android:label="Sales Order"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SalesOrderActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity android:name=".MainScreen" />
+        <activity android:name=".SimpleScannerActivity" />
+
+        <service
+            android:name=".Util.PictureService"
+            android:exported="false" />
+        <service
+            android:name=".services.WebService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+    </application>
+
+</manifest>

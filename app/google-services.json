@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "824064308120",
+    "firebase_url": "https://warehousepick.firebaseio.com",
+    "project_id": "warehousepick",
+    "storage_bucket": "warehousepick.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824064308120:android:70623be51017bf4c",
+        "android_client_info": {
+          "package_name": "com.jssai.warehousepick"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824064308120-uih521ps6s921r0ookoqiheh6s4156io.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASL_GXy0kTH2sp0OQAvZPLXZ8gkvUUJYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824064308120-uih521ps6s921r0ookoqiheh6s4156io.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

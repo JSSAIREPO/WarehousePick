@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jssai.warehousepick.Fragments.SignFragment">
+
+    <LinearLayout
+        android:id="@+id/signature_bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/capture"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:drawableLeft="@android:drawable/ic_menu_camera"
+            android:text="Capture" />
+
+        <Button
+            android:id="@+id/clear"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
+            android:text="Clear" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/signature_bottom_container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/sign_border_layout"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="2"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/signature_border">
+
+                <com.github.gcacace.signaturepad.views.SignaturePad xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/signature_pad"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:penColor="@android:color/black" />
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/signedTex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Already Signed"
+            android:textSize="35sp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
