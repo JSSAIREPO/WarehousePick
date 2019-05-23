@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="horizontal"
+    android:weightSum="2">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvItemNo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_black"
+        android:gravity="center_vertical"
+        android:padding="@dimen/medium_padding"
+        android:text="Item Number"
+        android:textColor="@android:color/darker_gray" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvBinCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_black"
+        android:gravity="center_vertical"
+        android:padding="@dimen/medium_padding"
+        android:text="Bin Code"
+        android:textColor="@android:color/darker_gray" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvQty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_weight="0"
+        android:background="@drawable/rounded_black"
+        android:gravity="center_vertical"
+        android:padding="@dimen/medium_padding"
+        android:text="Quantity"
+        android:textColor="@android:color/darker_gray" />
+
+</LinearLayout>

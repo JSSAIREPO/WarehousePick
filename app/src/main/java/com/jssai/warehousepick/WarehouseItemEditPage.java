@@ -1,8 +1,10 @@
 package com.jssai.warehousepick;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -23,6 +25,7 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.util.HashMap;
 
+import com.jssai.warehousepick.Model.Bin_Contents_List;
 import com.jssai.warehousepick.Model.ErrorResponse;
 import com.jssai.warehousepick.Model.WarehousePickItem;
 import com.jssai.warehousepick.services.WebService;
@@ -35,6 +38,7 @@ import static com.jssai.warehousepick.services.WebService.SHOW_RESULT;
 
 public class WarehouseItemEditPage extends AppCompatActivity implements WorkerResultReceiver.Receiver {
 
+    private static final int REQUEST_CODE_PICK_BIN_CODE = 100;
     @BindView(R.id.etItemNo)
     AppCompatEditText etItemNo;
 
@@ -169,5 +173,25 @@ public class WarehouseItemEditPage extends AppCompatActivity implements WorkerRe
                 break;
         }
 
+    }
+
+    public void openBinCodePage(View view) {
+        Intent intent = new Intent(this, WarehouseBinCodeListActivity.class);
+        startActivityForResult(intent, REQUEST_CODE_PICK_BIN_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data != null) {
+            if (requestCode == REQUEST_CODE_PICK_BIN_CODE) {
+                if (resultCode == Activity.RESULT_OK) {
+                    Bin_Contents_List bin_contents_list = (Bin_Contents_List) data.getSerializableExtra("binContentsList");
+                    if (bin_contents_list != null) {
+                        etBinCode.setText(bin_contents_list.getBin_Code());
+                    }
+                }
+            }
+        }
     }
 }

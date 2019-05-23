@@ -45,6 +45,7 @@ public class WebService extends JobIntentService {
     public static final int POST_RECORD_PICK_LINES = 3;
     public static final int POST_REGISTER_WAREHOUSE_PICK = 4;
     public static final int GET_LOGIN = 5;
+    public static final int GET_BIN_LIST = 6;
 
     //http://76.117.133.4
     public static final String URL_GET_WAREHOUSE_LIST = "service.asmx/getWareHouseList";
@@ -52,6 +53,7 @@ public class WebService extends JobIntentService {
     public static final String URL_POST_RECORD_PICK_LINES = "service.asmx/postRecordPickLines";
     public static final String URL_REGISTER_WAREHOUSE_PICK = "service.asmx/postRegisterWHPick";
     public static final String URL_LOGIN = "service.asmx/getLoginInfo?";
+    public static final String URL_GET_BIN_LIST = "service.asmx/getSuggestedPickBinList";
     //public String IP = "76.117.133.4";
     public String IP = "", DOMAIN = "", PORTNO, INSTANCENAME, COMPANYNAME, IPNAME;
     public static String strUser, strPwd;
@@ -87,6 +89,10 @@ public class WebService extends JobIntentService {
                 mResultReceiver = intent.getParcelableExtra(RECEIVER);
                 getCall(URL_GET_WAREHOUSE_DETAILS, purpose);
                 break;
+            case GET_BIN_LIST:
+                mResultReceiver = intent.getParcelableExtra(RECEIVER);
+                getCall(URL_GET_BIN_LIST, purpose);
+                break;
             case GET_LOGIN:
                 String username = params.get("username");
                 String password = params.get("password");
@@ -113,7 +119,6 @@ public class WebService extends JobIntentService {
         PORTNO = GlobalMethods.getPortNo(this);
         INSTANCENAME = GlobalMethods.getInstanceName(this);
         IPNAME = GlobalMethods.getIPName(this);
-
 
         url = "http://" + IP + "/" + DOMAIN + "/" + url;
         SharedPreferences sharedPreferences = GlobalMethods.getSharedPrefrence(getApplicationContext());
