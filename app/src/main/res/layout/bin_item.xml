@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@android:color/white"
     android:orientation="horizontal"
-    android:weightSum="2">
+    android:weightSum="3">
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tvItemNo"
@@ -32,8 +32,7 @@
         android:id="@+id/tvQty"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_weight="0"
+        android:layout_weight="1"
         android:background="@drawable/rounded_black"
         android:gravity="center_vertical"
         android:padding="@dimen/medium_padding"

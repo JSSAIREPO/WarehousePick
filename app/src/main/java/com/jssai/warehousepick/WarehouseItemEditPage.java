@@ -189,6 +189,7 @@ public class WarehouseItemEditPage extends AppCompatActivity implements WorkerRe
                     Bin_Contents_List bin_contents_list = (Bin_Contents_List) data.getSerializableExtra("binContentsList");
                     if (bin_contents_list != null) {
                         etBinCode.setText(bin_contents_list.getBin_Code());
+                        etQuantity.setText(bin_contents_list.getQty_per_Unit_of_Measure());
                     }
                 }
             }

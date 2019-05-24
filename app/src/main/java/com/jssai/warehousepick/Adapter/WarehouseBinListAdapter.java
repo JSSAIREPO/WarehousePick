@@ -82,7 +82,7 @@ public class WarehouseBinListAdapter extends RecyclerView.Adapter<WarehouseBinLi
         Bin_Contents_List binContentsList = bin_contents_listsFiltered.get(position);
         holder.tvItemNo.setText(binContentsList.getItem_No());
         holder.tvBinCode.setText(binContentsList.getBin_Code());
-        //holder.tvQty.setText(binContentsList.getQuantity());
+        holder.tvQty.setText(binContentsList.getQty_per_Unit_of_Measure());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

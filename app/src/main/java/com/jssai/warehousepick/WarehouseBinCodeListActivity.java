@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
@@ -47,7 +48,19 @@ public class WarehouseBinCodeListActivity extends AppCompatActivity implements W
         getData();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void initViews() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
         rvBinCodes = findViewById(R.id.rvBinCodes);
         rvBinCodes.setHasFixedSize(true);
         rvBinCodes.setLayoutManager(new LinearLayoutManager(this));
