@@ -37,11 +37,13 @@ public class WarehouseBinCodeListActivity extends AppCompatActivity implements W
     ArrayList<Bin_Contents_List> binContentsLists = new ArrayList<>();
     private WorkerResultReceiver mWorkerResultReceiver;
     ProgressDialog progressBar;
+    String itemNo = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_warehouse_bin_code_list);
+        itemNo = getIntent().getStringExtra("itemNo");
         initViews();
         mWorkerResultReceiver = new WorkerResultReceiver(new Handler());
         mWorkerResultReceiver.setReceiver(this);
@@ -97,7 +99,13 @@ public class WarehouseBinCodeListActivity extends AppCompatActivity implements W
         binContentsLists.clear();
 
         for (Binlist binlist : binListResponse.getBinlist()) {
-            binContentsLists.addAll(new ArrayList<Bin_Contents_List>(Arrays.asList(binlist.getBin_Contents_List())));
+            ArrayList<Bin_Contents_List> binContents = new ArrayList<Bin_Contents_List>(Arrays.asList(binlist.getBin_Contents_List()));
+            for (Bin_Contents_List bin_content : binContents) {
+                if (bin_content.getItem_No().equalsIgnoreCase(itemNo)) {
+                    binContentsLists.add(bin_content);
+                }
+            }
+            //binContentsLists.addAll(new ArrayList<Bin_Contents_List>(Arrays.asList(binlist.getBin_Contents_List())));
         }
         binListAdapter.notifyDataSetChanged();
     }

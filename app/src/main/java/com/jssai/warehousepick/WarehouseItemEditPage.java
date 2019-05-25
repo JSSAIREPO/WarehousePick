@@ -177,6 +177,7 @@ public class WarehouseItemEditPage extends AppCompatActivity implements WorkerRe
 
     public void openBinCodePage(View view) {
         Intent intent = new Intent(this, WarehouseBinCodeListActivity.class);
+        intent.putExtra("itemNo", warehousePickItem.getItem_No());
         startActivityForResult(intent, REQUEST_CODE_PICK_BIN_CODE);
     }
 
