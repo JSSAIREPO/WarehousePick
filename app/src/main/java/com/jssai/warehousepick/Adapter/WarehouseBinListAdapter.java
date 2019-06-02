@@ -10,7 +10,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
-import com.jssai.warehousepick.Model.Bin_Contents_List;
+import com.jssai.warehousepick.Model.Binlist;
 import com.jssai.warehousepick.R;
 import com.jssai.warehousepick.WarehouseBinCodeListActivity;
 
@@ -19,8 +19,8 @@ import java.util.ArrayList;
 public class WarehouseBinListAdapter extends RecyclerView.Adapter<WarehouseBinListAdapter.WarehouseListHolder> implements Filterable {
 
     private final Activity activity;
-    private ArrayList<Bin_Contents_List> bin_contents_lists;
-    private ArrayList<Bin_Contents_List> bin_contents_listsFiltered;
+    private ArrayList<Binlist> binlists;
+    private ArrayList<Binlist> binlistsFiltered;
 
     @Override
     public Filter getFilter() {
@@ -29,25 +29,25 @@ public class WarehouseBinListAdapter extends RecyclerView.Adapter<WarehouseBinLi
             protected FilterResults performFiltering(CharSequence charSequence) {
                 String charString = charSequence.toString();
                 if (charString.isEmpty()) {
-                    bin_contents_listsFiltered = bin_contents_lists;
+                    binlistsFiltered = binlists;
                 } else {
-                    ArrayList<Bin_Contents_List> filteredList = new ArrayList<>();
-                    for (Bin_Contents_List item : bin_contents_lists) {
+                    ArrayList<Binlist> filteredList = new ArrayList<>();
+                    for (Binlist item : binlists) {
                         if (item.getItem_No().toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(item);
                         }
                     }
-                    bin_contents_listsFiltered = filteredList;
+                    binlistsFiltered = filteredList;
                 }
 
                 FilterResults filterResults = new FilterResults();
-                filterResults.values = bin_contents_listsFiltered;
+                filterResults.values = binlistsFiltered;
                 return filterResults;
             }
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                bin_contents_listsFiltered = (ArrayList<Bin_Contents_List>) filterResults.values;
+                binlistsFiltered = (ArrayList<Binlist>) filterResults.values;
                 notifyDataSetChanged();
             }
         };
@@ -64,10 +64,10 @@ public class WarehouseBinListAdapter extends RecyclerView.Adapter<WarehouseBinLi
         }
     }
 
-    public WarehouseBinListAdapter(Activity context, ArrayList<Bin_Contents_List> bin_contents_lists) {
+    public WarehouseBinListAdapter(Activity context, ArrayList<Binlist> Binlists) {
         this.activity = context;
-        this.bin_contents_lists = bin_contents_lists;
-        this.bin_contents_listsFiltered = bin_contents_lists;
+        this.binlists = Binlists;
+        this.binlistsFiltered = Binlists;
     }
 
     @NonNull
@@ -79,21 +79,21 @@ public class WarehouseBinListAdapter extends RecyclerView.Adapter<WarehouseBinLi
 
     @Override
     public void onBindViewHolder(@NonNull WarehouseListHolder holder, int position) {
-        Bin_Contents_List binContentsList = bin_contents_listsFiltered.get(position);
-        holder.tvItemNo.setText(binContentsList.getItem_No());
-        holder.tvBinCode.setText(binContentsList.getBin_Code());
-        holder.tvQty.setText(binContentsList.getQty_per_Unit_of_Measure());
+        Binlist binlist = binlistsFiltered.get(position);
+        holder.tvItemNo.setText(binlist.getItem_No());
+        holder.tvBinCode.setText(binlist.getBin_Code());
+        holder.tvQty.setText("" + binlist.getAvailableQuantity());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((WarehouseBinCodeListActivity) activity).onItemSelected(binContentsList);
+                ((WarehouseBinCodeListActivity) activity).onItemSelected(binlist);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return bin_contents_listsFiltered.size();
+        return binlistsFiltered.size();
     }
 }

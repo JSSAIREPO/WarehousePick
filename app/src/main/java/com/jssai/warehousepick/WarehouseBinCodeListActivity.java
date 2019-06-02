@@ -10,13 +10,10 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
 import com.jssai.warehousepick.Adapter.WarehouseBinListAdapter;
-import com.jssai.warehousepick.Adapter.WarehouseListAdapter;
 import com.jssai.warehousepick.Model.BinListResponse;
-import com.jssai.warehousepick.Model.Bin_Contents_List;
 import com.jssai.warehousepick.Model.Binlist;
 import com.jssai.warehousepick.services.WebService;
 import com.jssai.warehousepick.services.WorkerResultReceiver;
@@ -25,8 +22,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import butterknife.BindColor;
-
 import static com.jssai.warehousepick.services.WebService.SHOW_RESULT;
 
 public class WarehouseBinCodeListActivity extends AppCompatActivity implements WorkerResultReceiver.Receiver {
@@ -34,7 +29,7 @@ public class WarehouseBinCodeListActivity extends AppCompatActivity implements W
     RecyclerView rvBinCodes;
     WarehouseBinListAdapter binListAdapter;
     BinListResponse binListResponse;
-    ArrayList<Bin_Contents_List> binContentsLists = new ArrayList<>();
+    ArrayList<Binlist> binlist = new ArrayList<>();
     private WorkerResultReceiver mWorkerResultReceiver;
     ProgressDialog progressBar;
     String itemNo = "";
@@ -69,7 +64,7 @@ public class WarehouseBinCodeListActivity extends AppCompatActivity implements W
         rvBinCodes.setItemAnimator(new DefaultItemAnimator());
         progressBar = new ProgressDialog(this);
         progressBar.setMessage("Loading Bin Lists...");
-        binListAdapter = new WarehouseBinListAdapter(this, binContentsLists);
+        binListAdapter = new WarehouseBinListAdapter(this, binlist);
         rvBinCodes.setAdapter(binListAdapter);
     }
 
@@ -96,23 +91,14 @@ public class WarehouseBinCodeListActivity extends AppCompatActivity implements W
     private void parseResponse(String json) {
         Gson gson = new Gson();
         BinListResponse binListResponse = gson.fromJson(json, BinListResponse.class);
-        binContentsLists.clear();
-
-        for (Binlist binlist : binListResponse.getBinlist()) {
-            ArrayList<Bin_Contents_List> binContents = new ArrayList<Bin_Contents_List>(Arrays.asList(binlist.getBin_Contents_List()));
-            for (Bin_Contents_List bin_content : binContents) {
-                if (bin_content.getItem_No().equalsIgnoreCase(itemNo)) {
-                    binContentsLists.add(bin_content);
-                }
-            }
-            //binContentsLists.addAll(new ArrayList<Bin_Contents_List>(Arrays.asList(binlist.getBin_Contents_List())));
-        }
+        binlist.clear();
+        binlist.addAll(new ArrayList<Binlist>(Arrays.asList(binListResponse.getBinlist())));
         binListAdapter.notifyDataSetChanged();
     }
 
-    public void onItemSelected(Bin_Contents_List binContentsList) {
+    public void onItemSelected(Binlist binlist) {
         Intent resultIntent = new Intent();
-        resultIntent.putExtra("binContentsList", (Serializable) binContentsList);
+        resultIntent.putExtra("binContentsList", (Serializable) binlist);
         setResult(Activity.RESULT_OK, resultIntent);
         finish();
     }

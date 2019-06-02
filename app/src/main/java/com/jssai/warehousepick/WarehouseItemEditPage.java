@@ -5,16 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -25,8 +21,7 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.util.HashMap;
 
-import com.jssai.warehousepick.Model.Bin_Contents_List;
-import com.jssai.warehousepick.Model.ErrorResponse;
+import com.jssai.warehousepick.Model.Binlist;
 import com.jssai.warehousepick.Model.WarehousePickItem;
 import com.jssai.warehousepick.services.WebService;
 import com.jssai.warehousepick.services.WorkerResultReceiver;
@@ -187,10 +182,10 @@ public class WarehouseItemEditPage extends AppCompatActivity implements WorkerRe
         if (data != null) {
             if (requestCode == REQUEST_CODE_PICK_BIN_CODE) {
                 if (resultCode == Activity.RESULT_OK) {
-                    Bin_Contents_List bin_contents_list = (Bin_Contents_List) data.getSerializableExtra("binContentsList");
-                    if (bin_contents_list != null) {
-                        etBinCode.setText(bin_contents_list.getBin_Code());
-                        etQuantity.setText(bin_contents_list.getQty_per_Unit_of_Measure());
+                    Binlist binlist = (Binlist) data.getSerializableExtra("binContentsList");
+                    if (binlist != null) {
+                        etBinCode.setText(binlist.getBin_Code());
+                        etQuantity.setText("" + binlist.getAvailableQuantity());
                     }
                 }
             }
