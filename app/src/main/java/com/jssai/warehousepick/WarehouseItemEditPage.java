@@ -43,6 +43,9 @@ public class WarehouseItemEditPage extends AppCompatActivity implements WorkerRe
     @BindView(R.id.etQuantity)
     AppCompatEditText etQuantity;
 
+    @BindView(R.id.etLotNumber)
+    AppCompatEditText etLotNumber;
+
     @BindView(R.id.swipeLayout)
     SwipeRefreshLayout swipeLayout;
 
@@ -104,6 +107,7 @@ public class WarehouseItemEditPage extends AppCompatActivity implements WorkerRe
         etItemNo.setText(warehousePickItem.getItem_No());
         etBinCode.setText(warehousePickItem.getBin_Code().toUpperCase());
         etQuantity.setText("" + warehousePickItem.getQty_to_Handle());
+        etLotNumber.setText("" + warehousePickItem.getQty_to_Handle());
     }
 
     private void getData() {
@@ -186,6 +190,7 @@ public class WarehouseItemEditPage extends AppCompatActivity implements WorkerRe
                     if (binlist != null) {
                         etBinCode.setText(binlist.getBin_Code());
                         etQuantity.setText("" + binlist.getAvailableQuantity());
+                        etLotNumber.setText("" + binlist.getLotNumber());
                     }
                 }
             }

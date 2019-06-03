@@ -54,13 +54,14 @@ public class WarehouseBinListAdapter extends RecyclerView.Adapter<WarehouseBinLi
     }
 
     public class WarehouseListHolder extends RecyclerView.ViewHolder {
-        public TextView tvItemNo, tvBinCode, tvQty;
+        public TextView tvItemNo, tvBinCode, tvLotNumber, tvQty;
 
         public WarehouseListHolder(View view) {
             super(view);
             tvItemNo = view.findViewById(R.id.tvItemNo);
             tvBinCode = view.findViewById(R.id.tvBinCode);
             tvQty = view.findViewById(R.id.tvQty);
+            tvLotNumber = view.findViewById(R.id.tvLotNumber);
         }
     }
 
@@ -83,6 +84,7 @@ public class WarehouseBinListAdapter extends RecyclerView.Adapter<WarehouseBinLi
         holder.tvItemNo.setText(binlist.getItem_No());
         holder.tvBinCode.setText(binlist.getBin_Code());
         holder.tvQty.setText("" + binlist.getAvailableQuantity());
+        holder.tvLotNumber.setText("" + binlist.getLotNumber());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

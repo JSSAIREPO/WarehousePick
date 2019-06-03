@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@android:color/white"
     android:orientation="horizontal"
-    android:weightSum="3">
+    android:weightSum="4">
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tvItemNo"
@@ -26,6 +26,17 @@
         android:gravity="center_vertical"
         android:padding="@dimen/medium_padding"
         android:text="Bin Code"
+        android:textColor="@android:color/darker_gray" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvLotNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_black"
+        android:gravity="center_vertical"
+        android:padding="@dimen/medium_padding"
+        android:text="@string/lot_number"
         android:textColor="@android:color/darker_gray" />
 
     <android.support.v7.widget.AppCompatTextView

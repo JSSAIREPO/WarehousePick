@@ -48,6 +48,8 @@ public class WarehousePickItem implements Serializable {
 
     private long Qty_to_Handle;
 
+    private String LotNumber;
+
     public WarehousePickItem(String key, int activity_type, boolean activity_typeSpecified, String no, String sales_order_no, String customer_no, String customer_name) {
         this.Key = key;
         this.Activity_Type = activity_type;
@@ -298,5 +300,13 @@ public class WarehousePickItem implements Serializable {
 
     public void setQty_to_Handle(long qty_to_Handle) {
         Qty_to_Handle = qty_to_Handle;
+    }
+
+    public String getLotNumber() {
+        return LotNumber;
+    }
+
+    public void setLotNumber(String lotNumber) {
+        LotNumber = lotNumber;
     }
 }
