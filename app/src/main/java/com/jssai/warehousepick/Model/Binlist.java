@@ -18,6 +18,8 @@ public class Binlist implements Serializable {
 
     private boolean AvailableQuantitySpecified;
 
+    private String LotNumber;
+
     public String getKey() {
         return Key;
     }
@@ -74,6 +76,14 @@ public class Binlist implements Serializable {
         AvailableQuantitySpecified = availableQuantitySpecified;
     }
 
+    public String getLotNumber() {
+        return LotNumber;
+    }
+
+    public void setLotNumber(String lotNumber) {
+        LotNumber = lotNumber;
+    }
+
     @Override
     public String toString() {
         return "Binlist{" +
@@ -84,6 +94,7 @@ public class Binlist implements Serializable {
                 ", Item_No='" + Item_No + '\'' +
                 ", AvailableQuantity=" + AvailableQuantity +
                 ", AvailableQuantitySpecified=" + AvailableQuantitySpecified +
+                ", LotNumber='" + LotNumber + '\'' +
                 '}';
     }
 }
